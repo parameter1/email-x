@@ -4,6 +4,7 @@ const { join } = require('path');
 const { spawnSync } = require('child_process');
 const https = require('https'); // eslint-disable-line import/newline-after-import
 const { DOCKER_USERNAME, DOCKER_PASSWORD, TRAVIS_TAG } = process.env;
+const DOCKER_ORG = process.env.DOCKER_ORG || 'basecms';
 const failed = () => spawnSync('npx', ['npx', '@base-cms/website-deployment-tool', 'notify-failed'], { stdio: 'inherit' });
 
 const useLerna = existsSync(join(process.cwd(), 'lerna.json'));
@@ -59,7 +60,7 @@ if (!existsSync(servicePath)) error(`Could not read ${servicePath}!`);
 // eslint-disable-next-line import/no-dynamic-require, global-require
 const pkg = require(`../${servicePath}/package.json`);
 const name = pkg.name.replace('@base-cms/parcel-plug', 'email-x').replace('/', '-');
-const image = `basecms/${name}-service`;
+const image = `${DOCKER_ORG}/${name}-service`;
 
 if (version !== `v${pkg.version}`) {
   log(`Service ${name} is at version ${pkg.version}. Skipping deployment.`);
