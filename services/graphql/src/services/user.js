@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const sessionService = require('./session');
 const User = require('../mongoose/models/user');
 

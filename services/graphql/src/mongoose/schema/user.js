@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const { Schema } = require('mongoose');
 const validator = require('validator');
 const crypto = require('crypto');

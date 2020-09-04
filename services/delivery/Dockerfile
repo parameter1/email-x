@@ -1,4 +1,4 @@
-FROM node:10.13
+FROM node:10.13-alpine
 ENV NODE_ENV production
 ADD ./ /parcel-plug
 WORKDIR /parcel-plug
