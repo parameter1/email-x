@@ -1,3 +1,4 @@
+require('./datadog');
 require('./newrelic');
 const http = require('http');
 const { createTerminus } = require('@godaddy/terminus');

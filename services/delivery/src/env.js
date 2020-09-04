@@ -21,4 +21,10 @@ module.exports = cleanEnv(process.env, {
   EXTERNAL_PORT: port({ desc: 'The external port that express is exposed on.', default: 80 }),
   NEW_RELIC_ENABLED: bool({ desc: 'Whether New Relic is enabled.', default: true, devDefault: false }),
   NEW_RELIC_LICENSE_KEY: nonemptystr({ desc: 'The license key for New Relic.', devDefault: '(unset)' }),
+
+  /**
+   * @see https://docs.datadoghq.com/tracing/setup/nodejs/#instrumentation for more options
+   */
+  DD_SERVICE: nonemptystr({ desc: 'The Datadog service name', default: 'email-x-delivery' }),
+  DD_TRACE_ENABLED: bool({ desc: 'Whether Datadog is enabled.', default: false, devDefault: false }),
 });
