@@ -2,6 +2,8 @@ const { asyncRoute, getAdUnit } = require('../utils');
 const deliver = require('../deliver');
 const db = require('../db');
 
+const getAdvertiser = id => db.findById('advertisers', id);
+
 module.exports = (app) => {
   app.get('/data/:adunitid', asyncRoute(async (req, res) => {
     const { params, query } = req;
@@ -16,9 +18,12 @@ module.exports = (app) => {
       db.findById('ads', correlated.adId),
     ]);
 
+    const advertiser = query.incAdv ? await getAdvertiser(ad.advertiserId) : undefined;
+
     return res.json({
       deployment,
       ad,
+      advertiser,
       correlated,
     });
   }));
