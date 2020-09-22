@@ -21,6 +21,7 @@ type Advertiser implements Timestampable & UserAttributable @applyInterfaceField
   id: ObjectID!
   name: String!
   website: String
+  externalId: String
   orders(input: AdvertiserOrdersInput = {}): OrderConnection! @refMany(modelName: "order", localField: "_id", foreignField: "advertiserId")
 }
 
