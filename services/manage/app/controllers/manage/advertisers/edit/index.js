@@ -4,6 +4,7 @@ import { ObjectQueryManager } from 'ember-apollo-client';
 
 import advertiserName from '@base-cms/parcel-plug-manage/gql/mutations/advertiser/name';
 import advertiserWebsite from '@base-cms/parcel-plug-manage/gql/mutations/advertiser/website';
+import advertiserExternalId from '@base-cms/parcel-plug-manage/gql/mutations/advertiser/external-id';
 import deleteAdvertiser from '@base-cms/parcel-plug-manage/gql/mutations/advertiser/delete';
 
 export default Controller.extend(ObjectQueryManager, ActionMixin, {
@@ -35,6 +36,23 @@ export default Controller.extend(ObjectQueryManager, ActionMixin, {
       const variables = { input };
       try {
         await this.get('apollo').mutate({ mutation: advertiserWebsite, variables }, 'advertiserWebsite');
+      } catch (e) {
+        throw this.get('graphErrors').handle(e);
+      } finally {
+        this.endAction();
+      }
+    },
+
+    /**
+     *
+     * @param {string} params.value
+     */
+    async setExternalId({ value }) {
+      this.startAction();
+      const input = { id: this.get('model.id'), value };
+      const variables = { input };
+      try {
+        await this.get('apollo').mutate({ mutation: advertiserExternalId, variables }, 'advertiserExternalId');
       } catch (e) {
         throw this.get('graphErrors').handle(e);
       } finally {

@@ -1,0 +1,6 @@
+mutation AdvertiserExternalId($input: AdvertiserExternalIdMutationInput!) {
+  advertiserExternalId(input: $input) {
+    id
+    externalId
+  }
+}
