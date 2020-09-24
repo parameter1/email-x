@@ -18,7 +18,9 @@ module.exports = (app) => {
       db.findById('ads', correlated.adId),
     ]);
 
-    const advertiser = query.incAdv ? await getAdvertiser(ad.advertiserId) : undefined;
+    // Only query the advertiser if requested.
+    const advertiser = query.incAdv !== undefined
+      ? await getAdvertiser(ad.advertiserId) : undefined;
 
     return res.json({
       deployment,
