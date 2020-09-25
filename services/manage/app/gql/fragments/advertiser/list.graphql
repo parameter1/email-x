@@ -3,6 +3,7 @@
 fragment AdvertiserListFragment on Advertiser {
   id
   name
+  externalId
   orders {
     totalCount
   }

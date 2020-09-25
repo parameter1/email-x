@@ -47,7 +47,7 @@ services:
       INTERNAL_PORT: 80
       EXTERNAL_PORT: 11004
       ACCOUNT_KEY: ${ACCOUNT_KEY-devel}
-      MONGO_DSN: ${MONGO_DSN-mongodb://mongodb:27017/parcel-plug}
+      MONGO_DSN: ${MONGO_DSN-mongodb://mongodb:27017/parcel-plug-devel}
     depends_on:
       - mongodb
     ports:

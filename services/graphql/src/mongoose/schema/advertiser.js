@@ -15,6 +15,10 @@ const schema = new Schema({
     required: true,
     trim: true,
   },
+  externalId: {
+    type: String,
+    trim: true,
+  },
   website: {
     type: String,
     trim: true,

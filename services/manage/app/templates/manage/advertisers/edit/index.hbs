@@ -18,6 +18,14 @@
           on-change=(action "setWebsite")
         }}
       </div>
+      <div class="col">
+        {{advertiser/-fields/external-id
+          class="mb-0"
+          form=form
+          value=model.externalId
+          on-change=(action "setExternalId")
+        }}
+      </div>
     </div>
   </div>
   <div class="card-footer text-right">

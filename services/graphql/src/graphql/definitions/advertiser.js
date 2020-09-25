@@ -15,12 +15,14 @@ extend type Mutation {
 
   advertiserName(input: AdvertiserNameMutationInput!): Advertiser! @requiresAuth @setAndUpdate(modelName: "advertiser", path: "name")
   advertiserWebsite(input: AdvertiserWebsiteMutationInput!): Advertiser! @requiresAuth @setAndUpdate(modelName: "advertiser", path: "website")
+  advertiserExternalId(input: AdvertiserExternalIdMutationInput!): Advertiser! @requiresAuth @setAndUpdate(modelName: "advertiser", path: "externalId")
 }
 
 type Advertiser implements Timestampable & UserAttributable @applyInterfaceFields {
   id: ObjectID!
   name: String!
   website: String
+  externalId: String
   orders(input: AdvertiserOrdersInput = {}): OrderConnection! @refMany(modelName: "order", localField: "_id", foreignField: "advertiserId")
 }
 
@@ -59,6 +61,7 @@ input DeleteAdvertiserMutationInput {
 input UpdateAdvertiserPayloadInput {
   name: String!
   website: String
+  externalId: String
 }
 
 input AdvertiserQueryInput {
@@ -93,6 +96,11 @@ input AdvertiserNameMutationInput {
 }
 
 input AdvertiserWebsiteMutationInput {
+  id: ObjectID!
+  value: String
+}
+
+input AdvertiserExternalIdMutationInput {
   id: ObjectID!
   value: String
 }

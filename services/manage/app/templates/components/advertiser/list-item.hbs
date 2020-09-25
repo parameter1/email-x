@@ -16,6 +16,7 @@
           <h4 class="mb-1">{{item.name}}</h4>
           <p class="mb-1">Orders: {{if item.orders.totalCount item.orders.totalCount 0}}</p>
           <small>ID: {{item.id}}</small>
+          {{#if item.externalId}}<small>External ID: {{item.externalId}}</small>{{/if}}
         </div>
       </div>
     </div>

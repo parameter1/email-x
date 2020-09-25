@@ -1,0 +1,19 @@
+<label for="advertiser-external-id">External ID</label>
+{{#form.elements.input
+  id="advertiser-external-id"
+  class="form-control"
+  autocomplete="off"
+  autofocus=autofocus
+  type="text"
+  name="external-id"
+  label="External ID"
+  value=value
+  aria-labeledby="advertiser-external-id-help"
+  on-change=on-change
+  required=true
+as |input|
+}}
+  {{input.element}}
+  {{input.elements.invalid-feedback}}
+{{/form.elements.input}}
+<small id="advertiser-external-id-help" class="form-text text-muted">The advertiser's external identifier.</small>

@@ -70,8 +70,5 @@
   },
   "engines": {
     "node": "6.* || 8.* || >= 10.*"
-  },
-  "dependencies": {
-    "@datadog/browser-rum": "^1.18.0"
   }
 }
