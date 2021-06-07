@@ -1,3 +1,4 @@
+const { filterUri } = require('@parameter1/mongodb/utils');
 const mongoose = require('./mongoose/connections');
 const models = require('./mongoose/models');
 const Account = require('./mongoose/models/account');
@@ -50,8 +51,8 @@ const indexModel = Model => new Promise((resolve, reject) => {
 const indexModels = () => Promise.all(Object.keys(models).map(name => indexModel(models[name])));
 
 module.exports = () => Promise.all([
-  start(mongoose.core, 'MongoDB core', m => m.client.s.url),
-  start(mongoose.account, 'MongoDB account', m => m.client.s.url),
+  start(mongoose.core, 'MongoDB core', m => filterUri(m.client)),
+  start(mongoose.account, 'MongoDB account', m => filterUri(m.client)),
   createAccount(),
   indexModels().then(() => log('> Model indexes created.')),
   start(new Promise((resolve, reject) => {

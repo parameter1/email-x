@@ -1,3 +1,4 @@
+const { filterUri } = require('@parameter1/mongodb/utils');
 const db = require('../db');
 const { log } = require('../utils');
 
@@ -11,5 +12,5 @@ const start = (promise, name, url) => {
 };
 
 module.exports = () => Promise.all([
-  start(db.connect(), 'MongoDB', c => c.s.url),
+  start(db.connect(), 'MongoDB', c => filterUri(c)),
 ]);

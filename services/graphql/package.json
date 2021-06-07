@@ -11,6 +11,7 @@
     "@base-cms/object-path": "^1.0.0",
     "@godaddy/terminus": "^4.1.0",
     "@newrelic/native-metrics": "^4.1.0",
+    "@parameter1/mongodb": "^1.4.14",
     "apollo-server-express": "^2.3.1",
     "aws-sdk": "^2.388.0",
     "base64-url": "^2.2.0",
