@@ -44,5 +44,9 @@
     "unique-push-id": "^1.0.2",
     "uuid": "^3.3.2",
     "validator": "^10.10.0"
+  },
+  "scripts": {
+    "lint": "eslint --ext .js ./",
+    "test": "yarn lint"
   }
 }
