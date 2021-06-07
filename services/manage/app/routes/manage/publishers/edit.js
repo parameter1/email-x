@@ -1,7 +1,7 @@
 import Route from '@ember/routing/route';
 import { RouteQueryManager } from 'ember-apollo-client';
 
-import query from '@base-cms/parcel-plug-manage/gql/queries/publisher/edit';
+import query from '@parameter1/email-x-manage/gql/queries/publisher/edit';
 
 export default Route.extend(RouteQueryManager, {
   model({ id }) {
@@ -9,4 +9,3 @@ export default Route.extend(RouteQueryManager, {
     return this.get('apollo').watchQuery({ query, variables, fetchPolicy: 'network-only' }, 'publisher');
   },
 });
-

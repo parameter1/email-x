@@ -1,4 +1,4 @@
-#import '@base-cms/parcel-plug-manage/gql/fragments/ad/edit'
+#import '@parameter1/email-x-manage/gql/fragments/ad/edit'
 
 query AdEdit($input: AdQueryInput!) {
   ad(input: $input) {

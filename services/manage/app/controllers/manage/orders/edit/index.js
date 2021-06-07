@@ -1,12 +1,12 @@
 import Controller from '@ember/controller';
-import ActionMixin from '@base-cms/parcel-plug-manage/mixins/action-mixin';
+import ActionMixin from '@parameter1/email-x-manage/mixins/action-mixin';
 import { get } from '@ember/object';
 import { ObjectQueryManager } from 'ember-apollo-client';
 
-import orderName from '@base-cms/parcel-plug-manage/gql/mutations/order/name';
-import orderAdvertiser from '@base-cms/parcel-plug-manage/gql/mutations/order/advertiser';
-import deleteOrder from '@base-cms/parcel-plug-manage/gql/mutations/order/delete';
-import cloneOrder from '@base-cms/parcel-plug-manage/gql/mutations/order/clone';
+import orderName from '@parameter1/email-x-manage/gql/mutations/order/name';
+import orderAdvertiser from '@parameter1/email-x-manage/gql/mutations/order/advertiser';
+import deleteOrder from '@parameter1/email-x-manage/gql/mutations/order/delete';
+import cloneOrder from '@parameter1/email-x-manage/gql/mutations/order/clone';
 
 export default Controller.extend(ObjectQueryManager, ActionMixin, {
   actions: {

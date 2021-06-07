@@ -1,13 +1,13 @@
 import Controller from '@ember/controller';
-import ActionMixin from '@base-cms/parcel-plug-manage/mixins/action-mixin';
+import ActionMixin from '@parameter1/email-x-manage/mixins/action-mixin';
 import { ObjectQueryManager } from 'ember-apollo-client';
 
-import userGivenName from '@base-cms/parcel-plug-manage/gql/mutations/user/given-name';
-import userFamilyName from '@base-cms/parcel-plug-manage/gql/mutations/user/family-name';
-import userRole from '@base-cms/parcel-plug-manage/gql/mutations/user/role';
-import userEmail from '@base-cms/parcel-plug-manage/gql/mutations/user/email';
-import changeUserPassword from '@base-cms/parcel-plug-manage/gql/mutations/user/change-password';
-import deleteUser from '@base-cms/parcel-plug-manage/gql/mutations/user/delete';
+import userGivenName from '@parameter1/email-x-manage/gql/mutations/user/given-name';
+import userFamilyName from '@parameter1/email-x-manage/gql/mutations/user/family-name';
+import userRole from '@parameter1/email-x-manage/gql/mutations/user/role';
+import userEmail from '@parameter1/email-x-manage/gql/mutations/user/email';
+import changeUserPassword from '@parameter1/email-x-manage/gql/mutations/user/change-password';
+import deleteUser from '@parameter1/email-x-manage/gql/mutations/user/delete';
 
 export default Controller.extend(ObjectQueryManager, ActionMixin, {
   actions: {

@@ -1,9 +1,9 @@
 import Controller from '@ember/controller';
 import { ObjectQueryManager } from 'ember-apollo-client';
 import { get } from '@ember/object';
-import ActionMixin from '@base-cms/parcel-plug-manage/mixins/action-mixin';
+import ActionMixin from '@parameter1/email-x-manage/mixins/action-mixin';
 
-import createAdUnit from '@base-cms/parcel-plug-manage/gql/mutations/adunit/create';
+import createAdUnit from '@parameter1/email-x-manage/gql/mutations/adunit/create';
 
 export default Controller.extend(ActionMixin, ObjectQueryManager, {
   actions: {

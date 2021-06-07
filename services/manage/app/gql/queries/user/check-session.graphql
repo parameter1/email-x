@@ -1,4 +1,4 @@
-#import '@base-cms/parcel-plug-manage/gql/fragments/authentication'
+#import '@parameter1/email-x-manage/gql/fragments/authentication'
 
 query CheckSession($input: CheckSessionQueryInput!) {
   checkSession(input: $input) {

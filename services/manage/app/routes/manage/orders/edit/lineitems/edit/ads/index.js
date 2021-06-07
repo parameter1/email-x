@@ -1,7 +1,7 @@
 import Route from '@ember/routing/route';
-import RouteObservableMixin from '@base-cms/parcel-plug-manage/mixins/route-observable-mixin';
+import RouteObservableMixin from '@parameter1/email-x-manage/mixins/route-observable-mixin';
 
-import query from '@base-cms/parcel-plug-manage/gql/queries/ad/list-for-lineitem';
+import query from '@parameter1/email-x-manage/gql/queries/ad/list-for-lineitem';
 
 export default Route.extend(RouteObservableMixin, {
   /**
@@ -31,5 +31,3 @@ export default Route.extend(RouteObservableMixin, {
     this._super(controller, model);
   },
 });
-
-

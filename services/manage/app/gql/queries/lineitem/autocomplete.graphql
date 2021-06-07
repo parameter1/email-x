@@ -1,4 +1,4 @@
-#import '@base-cms/parcel-plug-manage/gql/fragments/lineitem/autocomplete'
+#import '@parameter1/email-x-manage/gql/fragments/lineitem/autocomplete'
 
 query LineItemAutocomplete($input: MatchLineItemsQueryInput!) {
   matchLineItems(input: $input) {

@@ -1,4 +1,4 @@
-#import '@base-cms/parcel-plug-manage/gql/fragments/order/autocomplete'
+#import '@parameter1/email-x-manage/gql/fragments/order/autocomplete'
 
 query OrderAutocomplete($input: MatchOrdersQueryInput!) {
   matchOrders(input: $input) {

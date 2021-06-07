@@ -1,6 +1,6 @@
 import Route from '@ember/routing/route';
 import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mixin';
-import ActionMixin from '@base-cms/parcel-plug-manage/mixins/action-mixin';
+import ActionMixin from '@parameter1/email-x-manage/mixins/action-mixin';
 import { get } from '@ember/object';
 
 export default Route.extend(ApplicationRouteMixin, ActionMixin, {

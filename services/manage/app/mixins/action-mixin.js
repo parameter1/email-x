@@ -1,5 +1,5 @@
 import Mixin from '@ember/object/mixin';
-import LoadingMixin from '@base-cms/parcel-plug-manage/mixins/loading-mixin';
+import LoadingMixin from '@parameter1/email-x-manage/mixins/loading-mixin';
 
 export default Mixin.create(LoadingMixin, {
   isActionRunning: false,

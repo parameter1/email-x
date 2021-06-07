@@ -1,4 +1,4 @@
-#import '@base-cms/parcel-plug-manage/gql/fragments/deployment/autocomplete'
+#import '@parameter1/email-x-manage/gql/fragments/deployment/autocomplete'
 
 query DeploymentAutocomplete($input: MatchDeploymentsQueryInput!) {
   matchDeployments(input: $input) {

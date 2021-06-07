@@ -1,4 +1,4 @@
-#import '@base-cms/parcel-plug-manage/gql/fragments/authentication'
+#import '@parameter1/email-x-manage/gql/fragments/authentication'
 
 mutation LoginUser($input: LoginUserMutationInput!) {
 	loginUser(input: $input) {

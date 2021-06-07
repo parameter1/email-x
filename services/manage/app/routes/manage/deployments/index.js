@@ -1,8 +1,8 @@
 import Route from '@ember/routing/route';
-import ListRouteMixin from '@base-cms/parcel-plug-manage/mixins/list-route-mixin';
+import ListRouteMixin from '@parameter1/email-x-manage/mixins/list-route-mixin';
 
-import query from '@base-cms/parcel-plug-manage/gql/queries/deployment/list';
-import search from '@base-cms/parcel-plug-manage/gql/queries/deployment/match';
+import query from '@parameter1/email-x-manage/gql/queries/deployment/list';
+import search from '@parameter1/email-x-manage/gql/queries/deployment/match';
 
 export default Route.extend(ListRouteMixin, {
   /**
@@ -18,5 +18,3 @@ export default Route.extend(ListRouteMixin, {
     }, { limit, field, order, phrase, searchType, searchBy });
   },
 });
-
-

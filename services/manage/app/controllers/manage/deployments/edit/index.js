@@ -1,11 +1,11 @@
 import Controller from '@ember/controller';
-import ActionMixin from '@base-cms/parcel-plug-manage/mixins/action-mixin';
+import ActionMixin from '@parameter1/email-x-manage/mixins/action-mixin';
 import { get } from '@ember/object';
 import { ObjectQueryManager } from 'ember-apollo-client';
 
-import deploymentName from '@base-cms/parcel-plug-manage/gql/mutations/deployment/name';
-import deploymentPublisher from '@base-cms/parcel-plug-manage/gql/mutations/deployment/publisher';
-import deleteDeployment from '@base-cms/parcel-plug-manage/gql/mutations/deployment/delete';
+import deploymentName from '@parameter1/email-x-manage/gql/mutations/deployment/name';
+import deploymentPublisher from '@parameter1/email-x-manage/gql/mutations/deployment/publisher';
+import deleteDeployment from '@parameter1/email-x-manage/gql/mutations/deployment/delete';
 
 export default Controller.extend(ObjectQueryManager, ActionMixin, {
   actions: {

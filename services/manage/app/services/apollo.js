@@ -1,6 +1,6 @@
 import ApolloService from 'ember-apollo-client/services/apollo';
 import { inject } from '@ember/service';
-import authorize from '@base-cms/parcel-plug-manage/apollo/authorize';
+import authorize from '@parameter1/email-x-manage/apollo/authorize';
 import { computed } from '@ember/object';
 import { setContext } from 'apollo-link-context';
 import { createUploadLink } from 'apollo-upload-client';

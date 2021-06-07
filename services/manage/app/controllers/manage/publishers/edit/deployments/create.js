@@ -1,8 +1,8 @@
 import Controller from '@ember/controller';
 import { ObjectQueryManager } from 'ember-apollo-client';
-import ActionMixin from '@base-cms/parcel-plug-manage/mixins/action-mixin';
+import ActionMixin from '@parameter1/email-x-manage/mixins/action-mixin';
 
-import createDeployment from '@base-cms/parcel-plug-manage/gql/mutations/deployment/create';
+import createDeployment from '@parameter1/email-x-manage/gql/mutations/deployment/create';
 
 export default Controller.extend(ActionMixin, ObjectQueryManager, {
   actions: {

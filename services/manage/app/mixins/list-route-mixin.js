@@ -1,5 +1,5 @@
 import Mixin from '@ember/object/mixin';
-import RouteSearchMixin from '@base-cms/parcel-plug-manage/mixins/route-search-mixin';
+import RouteSearchMixin from '@parameter1/email-x-manage/mixins/route-search-mixin';
 
 export default Mixin.create(RouteSearchMixin, {
   queryParams: {

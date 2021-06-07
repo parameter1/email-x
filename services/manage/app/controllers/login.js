@@ -1,6 +1,6 @@
 import Controller from '@ember/controller';
 import { inject } from '@ember/service';
-import ActionMixin from '@base-cms/parcel-plug-manage/mixins/action-mixin';
+import ActionMixin from '@parameter1/email-x-manage/mixins/action-mixin';
 
 export default Controller.extend(ActionMixin, {
   username: null,

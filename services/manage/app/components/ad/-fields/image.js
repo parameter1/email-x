@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-import ImageInfo from '@base-cms/parcel-plug-manage/objects/image-info';
+import ImageInfo from '@parameter1/email-x-manage/objects/image-info';
 
 export default Component.extend({
   classNames: ['form-group'],

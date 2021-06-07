@@ -1,11 +1,11 @@
 import Controller from '@ember/controller';
-import ActionMixin from '@base-cms/parcel-plug-manage/mixins/action-mixin';
+import ActionMixin from '@parameter1/email-x-manage/mixins/action-mixin';
 import { ObjectQueryManager } from 'ember-apollo-client';
 
-import advertiserName from '@base-cms/parcel-plug-manage/gql/mutations/advertiser/name';
-import advertiserWebsite from '@base-cms/parcel-plug-manage/gql/mutations/advertiser/website';
-import advertiserExternalId from '@base-cms/parcel-plug-manage/gql/mutations/advertiser/external-id';
-import deleteAdvertiser from '@base-cms/parcel-plug-manage/gql/mutations/advertiser/delete';
+import advertiserName from '@parameter1/email-x-manage/gql/mutations/advertiser/name';
+import advertiserWebsite from '@parameter1/email-x-manage/gql/mutations/advertiser/website';
+import advertiserExternalId from '@parameter1/email-x-manage/gql/mutations/advertiser/external-id';
+import deleteAdvertiser from '@parameter1/email-x-manage/gql/mutations/advertiser/delete';
 
 export default Controller.extend(ObjectQueryManager, ActionMixin, {
   actions: {

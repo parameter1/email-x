@@ -1,4 +1,4 @@
-#import '@base-cms/parcel-plug-manage/gql/fragments/advertiser/edit'
+#import '@parameter1/email-x-manage/gql/fragments/advertiser/edit'
 
 query AdvertiserEdit($input: AdvertiserQueryInput!) {
   advertiser(input: $input) {

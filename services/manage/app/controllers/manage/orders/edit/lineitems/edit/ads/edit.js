@@ -1,14 +1,14 @@
 import Controller from '@ember/controller';
 import { ObjectQueryManager } from 'ember-apollo-client';
-import ActionMixin from '@base-cms/parcel-plug-manage/mixins/action-mixin';
+import ActionMixin from '@parameter1/email-x-manage/mixins/action-mixin';
 
-import adName from '@base-cms/parcel-plug-manage/gql/mutations/ad/name';
-import adImage from '@base-cms/parcel-plug-manage/gql/mutations/ad/image';
-import adWidth from '@base-cms/parcel-plug-manage/gql/mutations/ad/width';
-import adHeight from '@base-cms/parcel-plug-manage/gql/mutations/ad/height';
-import adUrl from '@base-cms/parcel-plug-manage/gql/mutations/ad/url';
-import deleteAd from '@base-cms/parcel-plug-manage/gql/mutations/ad/delete';
-import pauseAd from '@base-cms/parcel-plug-manage/gql/mutations/ad/pause';
+import adName from '@parameter1/email-x-manage/gql/mutations/ad/name';
+import adImage from '@parameter1/email-x-manage/gql/mutations/ad/image';
+import adWidth from '@parameter1/email-x-manage/gql/mutations/ad/width';
+import adHeight from '@parameter1/email-x-manage/gql/mutations/ad/height';
+import adUrl from '@parameter1/email-x-manage/gql/mutations/ad/url';
+import deleteAd from '@parameter1/email-x-manage/gql/mutations/ad/delete';
+import pauseAd from '@parameter1/email-x-manage/gql/mutations/ad/pause';
 
 export default Controller.extend(ActionMixin, ObjectQueryManager, {
   actions: {

@@ -1,13 +1,13 @@
 import Controller from '@ember/controller';
-import ActionMixin from '@base-cms/parcel-plug-manage/mixins/action-mixin';
+import ActionMixin from '@parameter1/email-x-manage/mixins/action-mixin';
 import { get } from '@ember/object';
 import { ObjectQueryManager } from 'ember-apollo-client';
 
-import adunitName from '@base-cms/parcel-plug-manage/gql/mutations/adunit/name';
-import adunitWidth from '@base-cms/parcel-plug-manage/gql/mutations/adunit/width';
-import adunitHeight from '@base-cms/parcel-plug-manage/gql/mutations/adunit/height';
-import adunitDeployment from '@base-cms/parcel-plug-manage/gql/mutations/adunit/deployment';
-import deleteAdUnit from '@base-cms/parcel-plug-manage/gql/mutations/adunit/delete';
+import adunitName from '@parameter1/email-x-manage/gql/mutations/adunit/name';
+import adunitWidth from '@parameter1/email-x-manage/gql/mutations/adunit/width';
+import adunitHeight from '@parameter1/email-x-manage/gql/mutations/adunit/height';
+import adunitDeployment from '@parameter1/email-x-manage/gql/mutations/adunit/deployment';
+import deleteAdUnit from '@parameter1/email-x-manage/gql/mutations/adunit/delete';
 
 export default Controller.extend(ObjectQueryManager, ActionMixin, {
   actions: {

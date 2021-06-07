@@ -1,4 +1,4 @@
-#import '@base-cms/parcel-plug-manage/gql/fragments/order/edit'
+#import '@parameter1/email-x-manage/gql/fragments/order/edit'
 
 query OrderEdit($input: OrderQueryInput!) {
   order(input: $input) {

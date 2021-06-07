@@ -1,4 +1,4 @@
-#import '@base-cms/parcel-plug-manage/gql/fragments/user/attribution'
+#import '@parameter1/email-x-manage/gql/fragments/user/attribution'
 
 fragment PublisherListFragment on Publisher {
   id

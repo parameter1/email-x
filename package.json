@@ -1,9 +1,9 @@
 {
-  "name": "parcel-plug",
-  "description": "Parcel Plug Monorepo",
-  "author": "Jacob Bare <jacob@limit0.io>",
+  "name": "@parameter1/email-x",
+  "description": "EmailX Monorepo",
+  "author": "Jacob Bare <jacob@parameter1.com>",
   "private": true,
-  "repository": "https://github.com/base-cms/parcel-plug.git",
+  "repository": "https://github.com/parameter1/email-x.git",
   "workspaces": [
     "packages/*",
     "services/*"

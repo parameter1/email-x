@@ -1,4 +1,4 @@
-#import '@base-cms/parcel-plug-manage/gql/fragments/publisher/edit'
+#import '@parameter1/email-x-manage/gql/fragments/publisher/edit'
 
 query PublisherEdit($input: PublisherQueryInput!) {
   publisher(input: $input) {

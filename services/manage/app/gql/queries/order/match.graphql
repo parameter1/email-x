@@ -1,4 +1,4 @@
-#import '@base-cms/parcel-plug-manage/gql/fragments/order/list'
+#import '@parameter1/email-x-manage/gql/fragments/order/list'
 
 query OrdersListMatch($input: MatchOrdersQueryInput!) {
   matchOrders(input: $input) {

@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   let ENV = {
-    modulePrefix: '@base-cms/parcel-plug-manage',
+    modulePrefix: '@parameter1/email-x-manage',
     environment,
     rootURL: '/app',
     locationType: 'auto',

@@ -1,7 +1,7 @@
 import Route from '@ember/routing/route';
 import { RouteQueryManager } from 'ember-apollo-client';
 
-import query from '@base-cms/parcel-plug-manage/gql/ping';
+import query from '@parameter1/email-x-manage/gql/ping';
 
 export default Route.extend(RouteQueryManager, {
   model() {

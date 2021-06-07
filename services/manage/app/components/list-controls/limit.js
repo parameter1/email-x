@@ -1,6 +1,6 @@
 import Component from '@ember/component';
 import { computed } from '@ember/object';
-import MenuMixin from '@base-cms/parcel-plug-manage/components/list-controls/menu-mixin';
+import MenuMixin from '@parameter1/email-x-manage/components/list-controls/menu-mixin';
 
 export default Component.extend(MenuMixin, {
   classNames: ['btn-group'],

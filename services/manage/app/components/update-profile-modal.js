@@ -1,9 +1,9 @@
 import Component from '@ember/component';
 import { ComponentQueryManager } from 'ember-apollo-client';
 import { inject } from '@ember/service';
-import ActionMixin from '@base-cms/parcel-plug-manage/mixins/action-mixin';
+import ActionMixin from '@parameter1/email-x-manage/mixins/action-mixin';
 
-import updateCurrentUserProfile from '@base-cms/parcel-plug-manage/gql/mutations/user/update-profile';
+import updateCurrentUserProfile from '@parameter1/email-x-manage/gql/mutations/user/update-profile';
 
 export default Component.extend(ComponentQueryManager, ActionMixin, {
   notify: inject(),

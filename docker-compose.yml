@@ -66,8 +66,8 @@ services:
       REDIS_DSN: redis://redis:6379/0
       AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
       AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
-      S3_BUCKET: ${S3_BUCKET-cdn.email-x.io}
-      CDN_HOST: ${CDN_HOST-cdn.email-x.io}
+      S3_BUCKET: ${S3_BUCKET-email-x}
+      CDN_HOST: ${CDN_HOST-cdn.email-x.parameter1.com}
     depends_on:
       - mongodb
       - redis

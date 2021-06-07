@@ -1,12 +1,12 @@
 import Service, { inject } from '@ember/service';
 import { ObjectQueryManager } from 'ember-apollo-client';
 
-import autocompleteAdvertisers from '@base-cms/parcel-plug-manage/gql/queries/advertiser/autocomplete';
-import autocompleteAdUnits from '@base-cms/parcel-plug-manage/gql/queries/adunit/autocomplete';
-import autocompleteDeployments from '@base-cms/parcel-plug-manage/gql/queries/deployment/autocomplete';
-import autocompletePublishers from '@base-cms/parcel-plug-manage/gql/queries/publisher/autocomplete';
-import autocompleteOrders from '@base-cms/parcel-plug-manage/gql/queries/order/autocomplete';
-import autocompleteLineItems from '@base-cms/parcel-plug-manage/gql/queries/lineitem/autocomplete';
+import autocompleteAdvertisers from '@parameter1/email-x-manage/gql/queries/advertiser/autocomplete';
+import autocompleteAdUnits from '@parameter1/email-x-manage/gql/queries/adunit/autocomplete';
+import autocompleteDeployments from '@parameter1/email-x-manage/gql/queries/deployment/autocomplete';
+import autocompletePublishers from '@parameter1/email-x-manage/gql/queries/publisher/autocomplete';
+import autocompleteOrders from '@parameter1/email-x-manage/gql/queries/order/autocomplete';
+import autocompleteLineItems from '@parameter1/email-x-manage/gql/queries/lineitem/autocomplete';
 
 export default Service.extend(ObjectQueryManager, {
   graphErrors: inject(),

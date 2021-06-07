@@ -1,4 +1,4 @@
-#import '@base-cms/parcel-plug-manage/gql/fragments/publisher/list'
+#import '@parameter1/email-x-manage/gql/fragments/publisher/list'
 
 query PublishersList($input: PublishersQueryInput = {}) {
   publishers(input: $input) {

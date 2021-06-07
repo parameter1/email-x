@@ -1,5 +1,5 @@
 import Mixin from '@ember/object/mixin';
-import RouteObservableMixin from '@base-cms/parcel-plug-manage/mixins/route-observable-mixin';
+import RouteObservableMixin from '@parameter1/email-x-manage/mixins/route-observable-mixin';
 
 export default Mixin.create(RouteObservableMixin, {
   /**

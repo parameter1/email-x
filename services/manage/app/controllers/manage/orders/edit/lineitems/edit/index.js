@@ -1,19 +1,19 @@
 import Controller from '@ember/controller';
-import ActionMixin from '@base-cms/parcel-plug-manage/mixins/action-mixin';
+import ActionMixin from '@parameter1/email-x-manage/mixins/action-mixin';
 import { get } from '@ember/object';
 import { ObjectQueryManager } from 'ember-apollo-client';
 
-import lineitemName from '@base-cms/parcel-plug-manage/gql/mutations/lineitem/name';
-import lineitemNotes from '@base-cms/parcel-plug-manage/gql/mutations/lineitem/notes';
-import lineitemPriority from '@base-cms/parcel-plug-manage/gql/mutations/lineitem/priority';
-import lineitemAdUnits from '@base-cms/parcel-plug-manage/gql/mutations/lineitem/adunits';
-import lineitemDeployments from '@base-cms/parcel-plug-manage/gql/mutations/lineitem/deployments';
-import lineitemPublishers from '@base-cms/parcel-plug-manage/gql/mutations/lineitem/publishers';
-import lineitemDateDays from '@base-cms/parcel-plug-manage/gql/mutations/lineitem/date-days';
-import lineitemDateRange from '@base-cms/parcel-plug-manage/gql/mutations/lineitem/date-range';
-import deleteLineItem from '@base-cms/parcel-plug-manage/gql/mutations/lineitem/delete';
-import pauseLineItem from '@base-cms/parcel-plug-manage/gql/mutations/lineitem/pause';
-import cloneLineItem from '@base-cms/parcel-plug-manage/gql/mutations/lineitem/clone';
+import lineitemName from '@parameter1/email-x-manage/gql/mutations/lineitem/name';
+import lineitemNotes from '@parameter1/email-x-manage/gql/mutations/lineitem/notes';
+import lineitemPriority from '@parameter1/email-x-manage/gql/mutations/lineitem/priority';
+import lineitemAdUnits from '@parameter1/email-x-manage/gql/mutations/lineitem/adunits';
+import lineitemDeployments from '@parameter1/email-x-manage/gql/mutations/lineitem/deployments';
+import lineitemPublishers from '@parameter1/email-x-manage/gql/mutations/lineitem/publishers';
+import lineitemDateDays from '@parameter1/email-x-manage/gql/mutations/lineitem/date-days';
+import lineitemDateRange from '@parameter1/email-x-manage/gql/mutations/lineitem/date-range';
+import deleteLineItem from '@parameter1/email-x-manage/gql/mutations/lineitem/delete';
+import pauseLineItem from '@parameter1/email-x-manage/gql/mutations/lineitem/pause';
+import cloneLineItem from '@parameter1/email-x-manage/gql/mutations/lineitem/clone';
 
 export default Controller.extend(ObjectQueryManager, ActionMixin, {
   actions: {
