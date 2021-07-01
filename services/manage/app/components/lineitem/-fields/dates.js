@@ -11,6 +11,7 @@ export default Component.extend({
   end: null,
   days: null,
   type: null,
+  center: null,
 
   showDateRange: computed('type', function() {
     return this.get('type') === 'range';
@@ -66,5 +67,9 @@ export default Component.extend({
         end: end ? end.endOf('day').valueOf() : null,
       });
     },
+
+    goToToday() {
+      this.set('center', moment());
+    }
   },
 });

@@ -16,4 +16,11 @@ export default Component.extend({
     this._super(...arguments);
     this.set('center', this.get('oldestDay'));
   },
+  didReceiveAttrs() {
+    this._super(...arguments);
+    const centerVal = this.get('center');
+    if(centerVal){
+      this.set('center', centerVal);
+    }
+  }
 });

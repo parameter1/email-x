@@ -19,16 +19,19 @@ as |select|
     {{#if showDateRange}}
       {{lineitem/-fields/dates/calendar-range
         range=_range
+        center=center
         onSelect=(action "setRange")
       }}
     {{else}}
       {{lineitem/-fields/dates/calendar-days
         days=_days
+        center=center
         onSelect=(action "setDays")
       }}
     {{/if}}
   </div>
   <div class="col-xl-6 text-left text-xl-right pt-2 pt-xl-0">
+    <button type="button" class="d-block" onclick={{action "goToToday"}}>Go To Today</button>
     {{#if showDateRange}}
       {{#if isRangeSet}}
         <small class="d-block">Start: {{moment-format _range.start "ddd MMM Do, YYYY"}}</small>
@@ -41,4 +44,3 @@ as |select|
     {{/if}}
   </div>
 </div>
-

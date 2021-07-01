@@ -10,4 +10,11 @@ export default Component.extend({
     const start = this.get('range.start');
     this.set('center', start || moment());
   },
+  didReceiveAttrs() {
+    this._super(...arguments);
+    const centerVal = this.get('center');
+    if(centerVal){
+      this.set('center', centerVal)
+    }
+  }
 });
