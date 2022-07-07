@@ -1,6 +1,7 @@
 const { URL } = require('url');
 const { asyncRoute, getAdUnit, cdnHostnameFor } = require('../utils');
 const deliver = require('../deliver');
+const db = require('../db');
 
 module.exports = (app) => {
   app.get('/image/:adunitid', asyncRoute(async (req, res) => {
@@ -13,7 +14,7 @@ module.exports = (app) => {
 
     const cdnHostname = await cdnHostnameFor(adunit.publisherId);
 
-    const { src } = correlated;
+    const { image: { src } } = await db.strictFindActiveById('ads', correlated.adId, { projection: { 'image.src': 1 } });
     if (cdnHostname) {
       // A custom CDN host has been configured. Adjust the redirect.
       const url = new URL(src);
