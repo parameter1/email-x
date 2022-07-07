@@ -39,7 +39,7 @@ module.exports = async (correlator, adunit, date) => {
   const correlated = await db.findOne('correlators', { value: correlator });
   if (correlated) {
     // Return the correlated item's ad src/url
-    const ad = await db.strictFindActiveById('ads', correlated.adId, { projection: { 'image.src': 1, url: 1 } });
+    const ad = await db.findById('ads', correlated.adId, { projection: { 'image.src': 1, url: 1 } });
     return {
       ...correlated,
       src: ad.image.src,
