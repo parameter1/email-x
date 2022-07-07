@@ -1,3 +1,4 @@
+const { URL } = require('url');
 const normalizeQuery = require('../utils/normalize-query');
 const createCorrelator = require('../utils/create-correlator');
 const getAd = require('./get-ad');
