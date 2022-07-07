@@ -3,6 +3,7 @@ const createCorrelator = require('../utils/create-correlator');
 const getAd = require('./get-ad');
 const events = require('./events');
 const logError = require('../log-error');
+const cdnHostnameFor = require('../utils/cdn-hostname-for');
 
 /**
  * @param {object} adunit The requested adunit document.
@@ -26,6 +27,13 @@ module.exports = async (adunit, query, type, req) => {
     rand,
   });
   const correlated = await getAd(correlator, adunit, date);
+  const cdnHostname = await cdnHostnameFor(adunit.publisherId);
+  if (cdnHostname) {
+    // A custom CDN host has been configured. Adjust the URL.
+    const url = new URL(correlated.src);
+    url.hostname = cdnHostname;
+    correlated.src = `${url}`;
+  }
 
   // Record events, but do not await.
   const params = {
