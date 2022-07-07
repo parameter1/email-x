@@ -26,11 +26,7 @@ module.exports = (app) => {
       deployment,
       ad,
       advertiser,
-      correlated: {
-        ...correlated,
-        src: ad.image.src,
-        url: ad.url,
-      },
+      correlated,
     });
   }));
 };
