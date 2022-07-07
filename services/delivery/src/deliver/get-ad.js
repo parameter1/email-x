@@ -18,11 +18,9 @@ const getSchedules = (adunitId, date) => db.aggregate('schedules', [
  * @param {*} ad
  */
 const updateCorrelator = async (correlator, ad, lineitemId) => {
-  const { _id: adId, src, url } = ad;
+  const { _id: adId } = ad;
   return db.updateOne('correlators', { value: correlator }, {
     $set: {
-      src,
-      url,
       adId,
       lineitemId,
     },
