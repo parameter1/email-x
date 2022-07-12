@@ -18,11 +18,9 @@ const getSchedules = (adunitId, date) => db.aggregate('schedules', [
  * @param {*} ad
  */
 const updateCorrelator = async (correlator, ad, lineitemId) => {
-  const { _id: adId, src, url } = ad;
+  const { _id: adId } = ad;
   return db.updateOne('correlators', { value: correlator }, {
     $set: {
-      src,
-      url,
       adId,
       lineitemId,
     },
@@ -39,7 +37,15 @@ const updateCorrelator = async (correlator, ad, lineitemId) => {
  */
 module.exports = async (correlator, adunit, date) => {
   const correlated = await db.findOne('correlators', { value: correlator });
-  if (correlated) return correlated;
+  if (correlated) {
+    // Return the correlated item's ad src/url
+    const ad = await db.findById('ads', correlated.adId, { projection: { 'image.src': 1, url: 1 } });
+    return {
+      ...correlated,
+      src: ad.image.src,
+      url: ad.url,
+    };
+  }
 
   const cursor = await getSchedules(adunit._id, date);
   const schedules = await cursor.toArray();
