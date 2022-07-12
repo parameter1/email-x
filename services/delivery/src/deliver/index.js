@@ -29,7 +29,7 @@ module.exports = async (adunit, query, type, req) => {
   });
   const correlated = await getAd(correlator, adunit, date);
   const cdnHostname = await cdnHostnameFor(adunit.publisherId);
-  if (cdnHostname) {
+  if (correlated && cdnHostname) {
     // A custom CDN host has been configured. Adjust the URL.
     const url = new URL(correlated.src);
     url.hostname = cdnHostname;
