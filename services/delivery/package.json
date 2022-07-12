@@ -1,6 +1,6 @@
 {
   "name": "@parameter1/email-x-delivery",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "The Parcel Plug Express Delivery Service.",
   "main": "src/index.js",
   "author": "Josh Worden <josh@parameter1.com>",
