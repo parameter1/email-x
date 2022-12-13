@@ -1,8 +1,10 @@
-const Event = require('../mongoose/models/event');
+const dayjs = require('../dayjs');
+const connection = require('../mongoose/connections/account');
 
 const { isArray } = Array;
 
-const aggregate = async ($match) => {
+// update this to use new aggregated collection
+const aggregate = async (collection, $match) => {
   const pipeline = [
     { $match },
     {
@@ -11,13 +13,13 @@ const aggregate = async ($match) => {
           advertiserId: '$advertiserId',
           orderId: '$orderId',
           lineitemId: '$lineitemId',
-          adId: '$adId',
+          adId: '$_id.ad',
           publisherId: '$publisherId',
           deploymentId: '$deploymentId',
-          adunitId: '$adunitId',
+          adunitId: '$_id.adunit',
         },
-        clicks: { $sum: { $cond: [{ $eq: ['$type', 'click'] }, 1, 0] } },
-        views: { $sum: { $cond: [{ $eq: ['$type', 'view'] }, 1, 0] } },
+        clicks: { $sum: { $ifNull: ['$actions.click', 0] } },
+        views: { $sum: { $ifNull: ['$actions.view', 0] } },
       },
     },
     {
@@ -36,16 +38,20 @@ const aggregate = async ($match) => {
       },
     },
   ];
-  const rows = await Event.aggregate(pipeline);
+  const rows = await collection.aggregate(pipeline).toArray();
   return { rows: rows || [] };
 };
 
 module.exports = (input) => {
-  const { start, end } = input;
-  const date = { $gte: start, $lte: end };
+  const startDay = dayjs.tz(input.start, 'America/Chicago').format('YYYY-MM-DD');
+  const endDay = dayjs.tz(input.end, 'America/Chicago').format('YYYY-MM-DD');
+
+  const { db } = connection;
+  const collection = db.collection('events/aggregated');
+
   const map = [
-    { key: 'adId', field: 'adIds' },
-    { key: 'adunitId', field: 'adunitIds' },
+    { key: '_id.ad', field: 'adIds' },
+    { key: '_id.adunit', field: 'adunitIds' },
     { key: 'advertiserId', field: 'advertiserIds' },
     { key: 'deploymentId', field: 'deploymentIds' },
     { key: 'lineitemId', field: 'lineitemIds' },
@@ -56,6 +62,8 @@ module.exports = (input) => {
     const value = input[field];
     if (!isArray(value) || !value.length) return o;
     return { ...o, [key]: { $in: value } };
-  }, { date, type: { $in: ['click', 'view'] } });
-  return aggregate($match);
+  }, {
+    '_id.day': { $gte: startDay, $lte: endDay },
+  });
+  return aggregate(collection, $match);
 };
