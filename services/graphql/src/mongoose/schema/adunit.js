@@ -98,9 +98,16 @@ schema.pre('validate', function setFullName() {
 schema.pre('save', async function updateEvents() {
   if (this.isModified('deploymentId')) {
     const { publisherId, deploymentId } = this;
-    connection.model('event').updateMany({ adunitId: this._id }, {
-      $set: { publisherId, deploymentId },
-    }).catch(e => logError(e));
+    Promise.all([
+      // Update aggregated events
+      connection.db.collection('events/aggregated').updateMany({ '_id.adunit': this._id }, {
+        $set: { publisherId, deploymentId },
+      }),
+      // Update raw events
+      connection.model('event').updateMany({ adunitId: this._id }, {
+        $set: { publisherId, deploymentId },
+      }),
+    ]).catch(logError);
   }
 });
 
