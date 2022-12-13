@@ -166,15 +166,10 @@ class DB {
 
   /**
    *
-   * @param {string} id
    */
-  ping(id) {
+  ping() {
     const { mongodb } = this;
-    const args = [{ _id: id }, { $set: { last: new Date() } }, { upsert: true }];
-    return Promise.all([
-      mongodb.db().command({ ping: 1 }),
-      mongodb.db().collection('pings').updateOne(...args),
-    ]);
+    return mongodb.db().command({ ping: 1 });
   }
 
   /**

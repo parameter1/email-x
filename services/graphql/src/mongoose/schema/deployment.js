@@ -74,9 +74,16 @@ schema.pre('save', async function updateRelatedModels() {
 schema.pre('save', async function updateEvents() {
   if (this.isModified('publisherId')) {
     const { publisherId } = this;
-    connection.model('event').updateMany({ deploymentId: this._id }, {
-      $set: { publisherId },
-    }).catch(e => logError(e));
+    Promise.all([
+      // Update aggregated events
+      connection.db.collection('events/aggregated').updateMany({ deploymentId: this._id }, {
+        $set: { publisherId },
+      }),
+      // Update raw events
+      connection.model('event').updateMany({ deploymentId: this._id }, {
+        $set: { publisherId },
+      }),
+    ]).catch(logError);
   }
 });
 

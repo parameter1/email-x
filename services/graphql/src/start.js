@@ -48,7 +48,22 @@ const indexModel = Model => new Promise((resolve, reject) => {
   });
 });
 
-const indexModels = () => Promise.all(Object.keys(models).map(name => indexModel(models[name])));
+const indexModels = () => Promise.all([
+  Promise.all(Object.keys(models).map(name => indexModel(models[name]))),
+  new Promise((resolve, reject) => {
+    mongoose.account.once('open', () => {
+      const { db } = mongoose.account;
+      db.collection('events/aggregated').createIndexes([
+        { key: { '_id.ad': 1 } },
+        { key: { '_id.adunit': 1 } },
+        { key: { '_id.day': 1 } },
+        { key: { deploymentId: 1 } },
+        { key: { lineitemId: 1 } },
+        { key: { orderId: 1 } },
+      ]).then(resolve).catch(reject);
+    });
+  }),
+]);
 
 module.exports = () => Promise.all([
   start(mongoose.core, 'MongoDB core', m => filterUri(m.client)),

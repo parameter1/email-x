@@ -103,10 +103,16 @@ schema.pre('save', async function updateRelatedModels() {
 schema.pre('save', async function updateEvents() {
   if (this.isModified('advertiserId')) {
     const { advertiserId } = this;
-    const criteria = { orderId: this._id, type: { $in: ['view', 'click'] } };
-    connection.model('event').updateMany(criteria, {
-      $set: { advertiserId },
-    }).catch(e => logError(e));
+    Promise.all([
+      // Update aggregated events
+      connection.db.collection('events/aggregated').updateMany({ orderId: this._id }, {
+        $set: { advertiserId },
+      }),
+      // Update raw events
+      connection.model('event').updateMany({ orderId: this._id, type: { $in: ['view', 'click'] } }, {
+        $set: { advertiserId },
+      }),
+    ]).catch(logError);
   }
 });
 
