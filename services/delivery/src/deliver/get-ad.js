@@ -16,11 +16,17 @@ const getSchedules = (adunitId, date) => db.aggregate('schedules', [
  * @param {*} adUnit
  * @param {*} schedule
  * @param {*} ad
+ * @param {*} date
  */
-const updateCorrelator = async (correlator, ad, lineitemId) => {
+const updateCorrelator = async ({
+  correlator,
+  ad,
+  lineitemId,
+}) => {
   const { _id: adId } = ad;
   return db.updateOne('correlators', { value: correlator }, {
     $set: {
+      createdAt: new Date(),
       adId,
       lineitemId,
     },
@@ -60,7 +66,7 @@ module.exports = async (correlator, adunit, date) => {
   const { ads, lineitemId } = schedule;
   const ad = randomElement(ads);
   const { src, url, _id: adId } = ad;
-  updateCorrelator(correlator, ad, lineitemId).catch(e => logError(e));
+  updateCorrelator({ correlator, ad, lineitemId }).catch(e => logError(e));
   return {
     src,
     url,
