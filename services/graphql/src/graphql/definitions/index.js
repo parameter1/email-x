@@ -45,6 +45,7 @@ type PageInfo {
 type Image {
   id: ObjectID!
   src: String!
+  serveSrc: String!
   filename: String!
   uploadedAt: Date!
   mimetype: String!
