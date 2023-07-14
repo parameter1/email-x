@@ -1,7 +1,9 @@
 const { Schema } = require('mongoose');
 const { isURL } = require('validator');
 const uuid = require('uuid/v4');
+const fetch = require('node-fetch');
 const { extname } = require('path');
+const newrelic = require('../../newrelic');
 const upload = require('../../s3/upload');
 const connection = require('../connections/account');
 const logError = require('../../log-error');
@@ -13,6 +15,26 @@ const {
   userAttributionPlugin,
 } = require('../plugins');
 const imageSchema = require('./image');
+
+const getImgixData = async (key) => {
+  try {
+    const url = `https://email-x.imgix.net/${key}?fm=json`;
+    const data = await fetch(url);
+    if (!data.ok) {
+      const error = new Error(data.statusText);
+      error.status = data.status;
+      throw error;
+    }
+    const body = await data.json();
+    return body;
+  } catch (e) {
+    const { error } = console;
+    error('Unable to parse imgix data for upload', e.message);
+    newrelic.noticeError(e);
+    if (e.status) return { error: true, status: e.status };
+    throw e;
+  }
+};
 
 const schema = new Schema({
   name: {
@@ -178,6 +200,7 @@ schema.method('uploadImage', async function uploadImage(file, { width, height, b
   });
   const image = {
     filename: name,
+    imgix: await getImgixData(key),
     src,
     s3: { bucket, key, etag: etag.replace(/"/g, '') },
     uploadedAt: new Date(),

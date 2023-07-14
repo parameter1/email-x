@@ -17,6 +17,9 @@ const schema = new Schema({
     key: String,
     etag: String,
   },
+  imgix: {
+    type: Object,
+  },
   uploadedAt: {
     type: Date,
   },
