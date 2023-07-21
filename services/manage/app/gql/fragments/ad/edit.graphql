@@ -10,7 +10,7 @@ fragment AdEditFragment on Ad {
   url
   image {
     id
-    src
+    src: serveSrc
     width
     height
     filename
