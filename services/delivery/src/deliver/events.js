@@ -25,12 +25,14 @@ const aggregateEvent = async ({
   publisherId,
 
   now,
+  external = false,
 }) => {
   const day = dayjs.tz(now, 'America/Chicago').format('YYYY-MM-DD');
   const _id = {
     ad: adId,
     adunit: adunitId,
     day,
+    ...(external && { external: true }),
   };
 
   return db.collection('events/aggregated').updateOne({ _id }, {
@@ -47,6 +49,8 @@ const aggregateEvent = async ({
 };
 
 module.exports = {
+  getAdIds,
+  aggregateEvent,
   async view(adunit, correlator, adId, {
     now,
     email,
