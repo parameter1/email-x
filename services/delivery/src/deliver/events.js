@@ -49,6 +49,8 @@ const aggregateEvent = async ({
 };
 
 module.exports = {
+  getAdIds,
+  aggregateEvent,
   async view(adunit, correlator, adId, {
     now,
     email,
