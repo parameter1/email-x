@@ -47,7 +47,6 @@ services:
       INTERNAL_PORT: 80
       EXTERNAL_EVENT_API_KEY: ${EXTERNAL_EVENT_API_KEY}
       EXTERNAL_PORT: 11004
-      ACCOUNT_KEY: ${ACCOUNT_KEY-example}
       MONGO_DSN: ${MONGO_DSN-mongodb://mongodb:27017/parcel-plug-example}
     depends_on:
       - mongodb
