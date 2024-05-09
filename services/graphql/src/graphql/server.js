@@ -1,9 +1,7 @@
 const { ApolloServer } = require('apollo-server-express');
 const schema = require('./schema');
 const { createLoaders } = require('../dataloaders');
-
-const { NODE_ENV, READ_ONLY } = process.env;
-const isProduction = NODE_ENV === 'production';
+const { READ_ONLY, isProduction } = require('../env');
 
 module.exports = ({ app, endpoint }) => {
   const loaders = createLoaders();
