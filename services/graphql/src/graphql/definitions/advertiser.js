@@ -9,13 +9,13 @@ extend type Query {
 }
 
 extend type Mutation {
-  createAdvertiser(input: CreateAdvertiserMutationInput!): Advertiser! @requiresAuth @create(modelName: "advertiser")
-  updateAdvertiser(input: UpdateAdvertiserMutationInput!): Advertiser! @requiresAuth @update(modelName: "advertiser")
-  deleteAdvertiser(input: DeleteAdvertiserMutationInput!): Advertiser! @requiresAuth @delete(modelName: "advertiser")
+  createAdvertiser(input: CreateAdvertiserMutationInput!): Advertiser! @requiresAuth @create(modelName: "advertiser") @readOnly
+  updateAdvertiser(input: UpdateAdvertiserMutationInput!): Advertiser! @requiresAuth @update(modelName: "advertiser") @readOnly
+  deleteAdvertiser(input: DeleteAdvertiserMutationInput!): Advertiser! @requiresAuth @delete(modelName: "advertiser") @readOnly
 
-  advertiserName(input: AdvertiserNameMutationInput!): Advertiser! @requiresAuth @setAndUpdate(modelName: "advertiser", path: "name")
-  advertiserWebsite(input: AdvertiserWebsiteMutationInput!): Advertiser! @requiresAuth @setAndUpdate(modelName: "advertiser", path: "website")
-  advertiserExternalId(input: AdvertiserExternalIdMutationInput!): Advertiser! @requiresAuth @setAndUpdate(modelName: "advertiser", path: "externalId")
+  advertiserName(input: AdvertiserNameMutationInput!): Advertiser! @requiresAuth @setAndUpdate(modelName: "advertiser", path: "name") @readOnly
+  advertiserWebsite(input: AdvertiserWebsiteMutationInput!): Advertiser! @requiresAuth @setAndUpdate(modelName: "advertiser", path: "website") @readOnly
+  advertiserExternalId(input: AdvertiserExternalIdMutationInput!): Advertiser! @requiresAuth @setAndUpdate(modelName: "advertiser", path: "externalId") @readOnly
 }
 
 type Advertiser implements Timestampable & UserAttributable @applyInterfaceFields {

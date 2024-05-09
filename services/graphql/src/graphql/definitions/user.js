@@ -10,16 +10,16 @@ extend type Query {
 }
 
 extend type Mutation {
-  createUser(input: CreateUserMutationInput!): User! @requiresAuth(role: Admin)
+  createUser(input: CreateUserMutationInput!): User! @requiresAuth(role: Admin) @readOnly
   loginUser(input: LoginUserMutationInput!): Authentication
   changeUserPassword(input: ChangeUserPasswordMutationInput!): User! @requiresAuth
-  updateCurrentUserProfile(input: UpdateCurrentUserProfileMutationInput!): User! @requiresAuth
-  deleteUser(input: DeleteUserMutationInput!): User! @requiresAuth(role: Admin) @delete(modelName: "user")
+  updateCurrentUserProfile(input: UpdateCurrentUserProfileMutationInput!): User! @requiresAuth @readOnly
+  deleteUser(input: DeleteUserMutationInput!): User! @requiresAuth(role: Admin) @delete(modelName: "user") @readOnly
 
-  userGivenName(input: UserGivenNameMutationInput!): User! @requiresAuth(role: Admin) @setAndUpdate(modelName: "user", path: "givenName")
-  userFamilyName(input: UserFamilyNameMutationInput!): User! @requiresAuth(role: Admin) @setAndUpdate(modelName: "user", path: "familyName")
-  userEmail(input: UserEmailMutationInput!): User! @requiresAuth(role: Admin) @setAndUpdate(modelName: "user", path: "email")
-  userRole(input: UserRoleMutationInput!): User! @requiresAuth(role: Admin) @setAndUpdate(modelName: "user", path: "role")
+  userGivenName(input: UserGivenNameMutationInput!): User! @requiresAuth(role: Admin) @setAndUpdate(modelName: "user", path: "givenName") @readOnly
+  userFamilyName(input: UserFamilyNameMutationInput!): User! @requiresAuth(role: Admin) @setAndUpdate(modelName: "user", path: "familyName") @readOnly
+  userEmail(input: UserEmailMutationInput!): User! @requiresAuth(role: Admin) @setAndUpdate(modelName: "user", path: "email") @readOnly
+  userRole(input: UserRoleMutationInput!): User! @requiresAuth(role: Admin) @setAndUpdate(modelName: "user", path: "role") @readOnly
 }
 
 enum UserRole {

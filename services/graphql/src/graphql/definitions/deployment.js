@@ -12,12 +12,12 @@ extend type Query {
 }
 
 extend type Mutation {
-  createDeployment(input: CreateDeploymentMutationInput!): Deployment! @requiresAuth @create(modelName: "deployment")
-  updateDeployment(input: UpdateDeploymentMutationInput!): Deployment! @requiresAuth @update(modelName: "deployment")
-  deleteDeployment(input: DeleteDeploymentMutationInput!): Deployment! @requiresAuth @delete(modelName: "deployment")
+  createDeployment(input: CreateDeploymentMutationInput!): Deployment! @requiresAuth @create(modelName: "deployment") @readOnly
+  updateDeployment(input: UpdateDeploymentMutationInput!): Deployment! @requiresAuth @update(modelName: "deployment") @readOnly
+  deleteDeployment(input: DeleteDeploymentMutationInput!): Deployment! @requiresAuth @delete(modelName: "deployment") @readOnly
 
-  deploymentName(input: DeploymentNameMutationInput!): Deployment! @requiresAuth @setAndUpdate(modelName: "deployment", path: "name")
-  deploymentPublisher(input: DeploymentPublisherMutationInput!): Deployment! @requiresAuth @setAndUpdate(modelName: "deployment", path: "publisherId")
+  deploymentName(input: DeploymentNameMutationInput!): Deployment! @requiresAuth @setAndUpdate(modelName: "deployment", path: "name") @readOnly
+  deploymentPublisher(input: DeploymentPublisherMutationInput!): Deployment! @requiresAuth @setAndUpdate(modelName: "deployment", path: "publisherId") @readOnly
 }
 
 type Deployment implements Timestampable & UserAttributable @applyInterfaceFields {

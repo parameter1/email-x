@@ -12,13 +12,13 @@ extend type Query {
 }
 
 extend type Mutation {
-  createOrder(input: CreateOrderMutationInput!): Order! @requiresAuth @create(modelName: "order")
-  updateOrder(input: UpdateOrderMutationInput!): Order! @requiresAuth @update(modelName: "order")
-  deleteOrder(input: DeleteOrderMutationInput!): Order! @requiresAuth @delete(modelName: "order")
-  cloneOrder(input: CloneOrderMutationInput!): Order! @requiresAuth @clone(modelName: "order")
+  createOrder(input: CreateOrderMutationInput!): Order! @requiresAuth @create(modelName: "order") @readOnly
+  updateOrder(input: UpdateOrderMutationInput!): Order! @requiresAuth @update(modelName: "order") @readOnly
+  deleteOrder(input: DeleteOrderMutationInput!): Order! @requiresAuth @delete(modelName: "order") @readOnly
+  cloneOrder(input: CloneOrderMutationInput!): Order! @requiresAuth @clone(modelName: "order") @readOnly
 
-  orderName(input: OrderNameMutationInput!): Order! @requiresAuth @setAndUpdate(modelName: "order", path: "name")
-  orderAdvertiser(input: OrderAdvertiserMutationInput!): Order! @requiresAuth @setAndUpdate(modelName: "order", path: "advertiserId")
+  orderName(input: OrderNameMutationInput!): Order! @requiresAuth @setAndUpdate(modelName: "order", path: "name") @readOnly
+  orderAdvertiser(input: OrderAdvertiserMutationInput!): Order! @requiresAuth @setAndUpdate(modelName: "order", path: "advertiserId") @readOnly
 }
 
 type Order implements Timestampable & UserAttributable @applyInterfaceFields {

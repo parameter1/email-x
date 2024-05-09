@@ -14,14 +14,14 @@ extend type Query {
 }
 
 extend type Mutation {
-  createAdUnit(input: CreateAdUnitMutationInput!): AdUnit! @requiresAuth @create(modelName: "adunit")
-  updateAdUnit(input: UpdateAdUnitMutationInput!): AdUnit! @requiresAuth @update(modelName: "adunit")
-  deleteAdUnit(input: DeleteAdUnitMutationInput!): AdUnit! @requiresAuth @delete(modelName: "adunit")
+  createAdUnit(input: CreateAdUnitMutationInput!): AdUnit! @requiresAuth @create(modelName: "adunit") @readOnly
+  updateAdUnit(input: UpdateAdUnitMutationInput!): AdUnit! @requiresAuth @update(modelName: "adunit") @readOnly
+  deleteAdUnit(input: DeleteAdUnitMutationInput!): AdUnit! @requiresAuth @delete(modelName: "adunit") @readOnly
 
-  adunitName(input: AdUnitNameMutationInput!): AdUnit! @requiresAuth @setAndUpdate(modelName: "adunit", path: "name")
-  adunitWidth(input: AdUnitWidthMutationInput!): AdUnit! @requiresAuth @setAndUpdate(modelName: "adunit", path: "width")
-  adunitHeight(input: AdUnitHeightMutationInput!): AdUnit! @requiresAuth @setAndUpdate(modelName: "adunit", path: "height")
-  adunitDeployment(input: AdUnitDeploymentMutationInput!): AdUnit! @requiresAuth @setAndUpdate(modelName: "adunit", path: "deploymentId")
+  adunitName(input: AdUnitNameMutationInput!): AdUnit! @requiresAuth @setAndUpdate(modelName: "adunit", path: "name") @readOnly
+  adunitWidth(input: AdUnitWidthMutationInput!): AdUnit! @requiresAuth @setAndUpdate(modelName: "adunit", path: "width") @readOnly
+  adunitHeight(input: AdUnitHeightMutationInput!): AdUnit! @requiresAuth @setAndUpdate(modelName: "adunit", path: "height") @readOnly
+  adunitDeployment(input: AdUnitDeploymentMutationInput!): AdUnit! @requiresAuth @setAndUpdate(modelName: "adunit", path: "deploymentId") @readOnly
 }
 
 type AdUnit implements Timestampable & UserAttributable @applyInterfaceFields {

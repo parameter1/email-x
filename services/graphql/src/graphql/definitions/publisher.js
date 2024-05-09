@@ -9,11 +9,11 @@ extend type Query {
 }
 
 extend type Mutation {
-  createPublisher(input: CreatePublisherMutationInput!): Publisher! @requiresAuth @create(modelName: "publisher")
-  updatePublisher(input: UpdatePublisherMutationInput!): Publisher! @requiresAuth @update(modelName: "publisher")
-  deletePublisher(input: DeletePublisherMutationInput!): Publisher! @requiresAuth @delete(modelName: "publisher")
+  createPublisher(input: CreatePublisherMutationInput!): Publisher! @requiresAuth @create(modelName: "publisher") @readOnly
+  updatePublisher(input: UpdatePublisherMutationInput!): Publisher! @requiresAuth @update(modelName: "publisher") @readOnly
+  deletePublisher(input: DeletePublisherMutationInput!): Publisher! @requiresAuth @delete(modelName: "publisher") @readOnly
 
-  publisherName(input: PublisherNameMutationInput!): Publisher! @requiresAuth @setAndUpdate(modelName: "publisher", path: "name")
+  publisherName(input: PublisherNameMutationInput!): Publisher! @requiresAuth @setAndUpdate(modelName: "publisher", path: "name") @readOnly
 }
 
 type Publisher implements Timestampable & UserAttributable @applyInterfaceFields {

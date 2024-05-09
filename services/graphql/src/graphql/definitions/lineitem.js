@@ -14,20 +14,20 @@ extend type Query {
 }
 
 extend type Mutation {
-  createLineItem(input: CreateLineItemMutationInput!): LineItem! @requiresAuth @create(modelName: "lineitem")
-  updateLineItem(input: UpdateLineItemMutationInput!): LineItem! @requiresAuth @update(modelName: "lineitem")
-  deleteLineItem(input: DeleteLineItemMutationInput!): LineItem! @requiresAuth @delete(modelName: "lineitem")
+  createLineItem(input: CreateLineItemMutationInput!): LineItem! @requiresAuth @create(modelName: "lineitem") @readOnly
+  updateLineItem(input: UpdateLineItemMutationInput!): LineItem! @requiresAuth @update(modelName: "lineitem") @readOnly
+  deleteLineItem(input: DeleteLineItemMutationInput!): LineItem! @requiresAuth @delete(modelName: "lineitem") @readOnly
   cloneLineItem(input: CloneLineItemMutationInput!): LineItem! @requiresAuth @clone(modelName: "lineitem")
 
-  lineitemName(input: LineItemNameMutationInput!): LineItem! @requiresAuth @setAndUpdate(modelName: "lineitem", path: "name")
-  lineitemNotes(input: LineItemNotesMutationInput!): LineItem! @requiresAuth @setAndUpdate(modelName: "lineitem", path: "notes")
-  lineitemPriority(input: LineItemPriorityMutationInput!): LineItem! @requiresAuth @setAndUpdate(modelName: "lineitem", path: "priority")
-  lineitemPaused(input: LineItemPausedMutationInput!): LineItem! @requiresAuth @setAndUpdate(modelName: "lineitem", path: "paused")
-  lineitemAdUnits(input: LineItemAdUnitsMutationInput!): LineItem! @requiresAuth @setAndUpdate(modelName: "lineitem", path: "targeting.adunitIds")
-  lineitemDeployments(input: LineItemDeploymentsMutationInput!): LineItem! @requiresAuth @setAndUpdate(modelName: "lineitem", path: "targeting.deploymentIds")
-  lineitemPublishers(input: LineItemPublishersMutationInput!): LineItem! @requiresAuth @setAndUpdate(modelName: "lineitem", path: "targeting.publisherIds")
-  lineitemDateDays(input: LineItemDateDaysMutationInput): LineItem! @requiresAuth
-  lineitemDateRange(input: LineItemDateRangeMutationInput): LineItem! @requiresAuth
+  lineitemName(input: LineItemNameMutationInput!): LineItem! @requiresAuth @setAndUpdate(modelName: "lineitem", path: "name") @readOnly
+  lineitemNotes(input: LineItemNotesMutationInput!): LineItem! @requiresAuth @setAndUpdate(modelName: "lineitem", path: "notes") @readOnly
+  lineitemPriority(input: LineItemPriorityMutationInput!): LineItem! @requiresAuth @setAndUpdate(modelName: "lineitem", path: "priority") @readOnly
+  lineitemPaused(input: LineItemPausedMutationInput!): LineItem! @requiresAuth @setAndUpdate(modelName: "lineitem", path: "paused") @readOnly
+  lineitemAdUnits(input: LineItemAdUnitsMutationInput!): LineItem! @requiresAuth @setAndUpdate(modelName: "lineitem", path: "targeting.adunitIds") @readOnly
+  lineitemDeployments(input: LineItemDeploymentsMutationInput!): LineItem! @requiresAuth @setAndUpdate(modelName: "lineitem", path: "targeting.deploymentIds") @readOnly
+  lineitemPublishers(input: LineItemPublishersMutationInput!): LineItem! @requiresAuth @setAndUpdate(modelName: "lineitem", path: "targeting.publisherIds") @readOnly
+  lineitemDateDays(input: LineItemDateDaysMutationInput): LineItem! @requiresAuth @readOnly
+  lineitemDateRange(input: LineItemDateRangeMutationInput): LineItem! @requiresAuth @readOnly
 }
 
 enum LineItemStatus {
