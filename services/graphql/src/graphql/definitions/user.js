@@ -47,6 +47,7 @@ enum UserSortField {
 }
 
 type Authentication {
+  locked: Boolean!
   user: User!
   session: Session!
 }
