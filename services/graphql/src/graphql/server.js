@@ -18,7 +18,7 @@ module.exports = ({ app, endpoint }) => {
           if (!loaders[loader]) throw new Error(`No dataloader found for '${loader}'`);
           return loaders[loader].load(id);
         },
-        locked: READ_ONLY === '1',
+        locked: READ_ONLY,
       };
     },
   });
