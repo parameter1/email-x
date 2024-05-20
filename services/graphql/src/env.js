@@ -22,6 +22,7 @@ module.exports = cleanEnv(process.env, {
   S3_BUCKET: nonemptystr({ desc: 'The S3 bucket for uploading images.', default: 'email-x' }),
   CDN_HOST: nonemptystr({ desc: 'The CDN hostname for serving ad images.', default: 'cdn.email-x.parameter1.com' }),
   MONGO_DSN: nonemptystr({ desc: 'The MongoDB DSN to connect to.' }),
+  READ_ONLY: bool({ desc: 'Whether the instance is in read only mode.', default: false }),
   REDIS_DSN: nonemptystr({ desc: 'The Redis DSN to connect to.' }),
   INTERNAL_PORT: port({ desc: 'The internal port that express will run on.', default: 80 }),
   EXTERNAL_PORT: port({ desc: 'The external port that express is exposed on.', default: 80 }),

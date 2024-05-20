@@ -3,6 +3,7 @@ const CloneDirective = require('./clone');
 const CreateDirective = require('./create');
 const DeleteDirective = require('./delete');
 const MatchManyDirective = require('./match-many');
+const ReadOnlyDirective = require('./read-only');
 const RefManyDirective = require('./ref-many');
 const RefOneDirective = require('./ref-one');
 const RequiresAuthDirective = require('./requires-auth');
@@ -17,6 +18,7 @@ module.exports = {
   create: CreateDirective,
   delete: DeleteDirective,
   matchMany: MatchManyDirective,
+  readOnly: ReadOnlyDirective,
   refMany: RefManyDirective,
   refOne: RefOneDirective,
   requiresAuth: RequiresAuthDirective,

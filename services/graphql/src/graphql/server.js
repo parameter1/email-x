@@ -1,9 +1,7 @@
 const { ApolloServer } = require('apollo-server-express');
 const schema = require('./schema');
 const { createLoaders } = require('../dataloaders');
-
-const { NODE_ENV } = process.env;
-const isProduction = NODE_ENV === 'production';
+const { READ_ONLY, isProduction } = require('../env');
 
 module.exports = ({ app, endpoint }) => {
   const loaders = createLoaders();
@@ -20,6 +18,7 @@ module.exports = ({ app, endpoint }) => {
           if (!loaders[loader]) throw new Error(`No dataloader found for '${loader}'`);
           return loaders[loader].load(id);
         },
+        locked: READ_ONLY,
       };
     },
   });

@@ -12,17 +12,17 @@ extend type Query {
 }
 
 extend type Mutation {
-  createAd(input: CreateAdMutationInput!): Ad! @requiresAuth
-  updateAd(input: UpdateAdMutationInput!): Ad! @requiresAuth @update(modelName: "ad")
-  deleteAd(input: DeleteAdMutationInput!): Ad! @requiresAuth @delete(modelName: "ad")
-  cloneAd(input: CloneAdMutationInput!): Ad! @requiresAuth @clone(modelName: "ad")
+  createAd(input: CreateAdMutationInput!): Ad! @requiresAuth @readOnly
+  updateAd(input: UpdateAdMutationInput!): Ad! @requiresAuth @update(modelName: "ad") @readOnly
+  deleteAd(input: DeleteAdMutationInput!): Ad! @requiresAuth @delete(modelName: "ad") @readOnly
+  cloneAd(input: CloneAdMutationInput!): Ad! @requiresAuth @clone(modelName: "ad") @readOnly
 
-  adName(input: AdNameMutationInput!): Ad! @requiresAuth @setAndUpdate(modelName: "ad", path: "name")
-  adWidth(input: AdWidthMutationInput!): Ad! @requiresAuth @setAndUpdate(modelName: "ad", path: "width")
-  adHeight(input: AdHeightMutationInput!): Ad! @requiresAuth @setAndUpdate(modelName: "ad", path: "height")
-  adUrl(input: AdUrlMutationInput!): Ad! @requiresAuth @setAndUpdate(modelName: "ad", path: "url")
-  adPaused(input: AdPausedMutationInput!): Ad! @requiresAuth @setAndUpdate(modelName: "ad", path: "paused")
-  adImage(input: AdImageMutationInput!): Ad! @requiresAuth
+  adName(input: AdNameMutationInput!): Ad! @requiresAuth @setAndUpdate(modelName: "ad", path: "name") @readOnly
+  adWidth(input: AdWidthMutationInput!): Ad! @requiresAuth @setAndUpdate(modelName: "ad", path: "width") @readOnly
+  adHeight(input: AdHeightMutationInput!): Ad! @requiresAuth @setAndUpdate(modelName: "ad", path: "height") @readOnly
+  adUrl(input: AdUrlMutationInput!): Ad! @requiresAuth @setAndUpdate(modelName: "ad", path: "url") @readOnly
+  adPaused(input: AdPausedMutationInput!): Ad! @requiresAuth @setAndUpdate(modelName: "ad", path: "paused") @readOnly
+  adImage(input: AdImageMutationInput!): Ad! @requiresAuth @readOnly
 }
 
 enum AdStatus {
