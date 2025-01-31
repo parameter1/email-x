@@ -12,6 +12,7 @@ const connection = mongoose.createConnection(MONGO_DSN, {
   useNewUrlParser: true,
   useFindAndModify: false,
   useCreateIndex: true,
+  useUnifiedTopology: true,
 });
 
 module.exports = connection;

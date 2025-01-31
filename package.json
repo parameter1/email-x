@@ -19,5 +19,9 @@
   },
   "scripts": {
     "test": "node_modules/.bin/lerna run test"
+  },
+  "resolutions": {
+    "@types/bson": "4.0.3",
+    "@types/mongodb": "3.6.18"
   }
 }
