@@ -56,7 +56,7 @@ jobs:
         id: docker_build
         with:
           context: .
-          file: services/delivery/Dockerfile
+          file: services/graphql/Dockerfile
           push: true
           tags: ${{ needs.version.outputs.image }}
 
