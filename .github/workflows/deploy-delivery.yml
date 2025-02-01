@@ -16,7 +16,7 @@ jobs:
         echo "version=$VERSION" >> $GITHUB_OUTPUT
     outputs:
       version: ${{ steps.tag_version.outputs.version }}
-      image: 598984531759.dkr.ecr.us-east-2.amazonaws.com/email-x-delivery:${{ steps.tag_version.outputs.version }}
+      image: 598984531759.dkr.ecr.us-east-2.amazonaws.com/email-x-delivery-service:${{ steps.tag_version.outputs.version }}
 
   notify-start:
     needs: [version]
